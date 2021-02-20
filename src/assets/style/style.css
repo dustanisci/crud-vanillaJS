@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "inter";
+  src: url("../fonts/inter/inter-regular.woff") format("woff"), url("../fonts/inter/inter-regular.woff2") format("woff2"), url("../fonts/inter/inter-regular.eot") format("eot"), url("../fonts/inter/inter-regular.otf") format("otf"), url("../fonts/inter/inter-regular.ttf") format("ttf");
+}
+* {
+  font-family: "inter";
+}
+
+/*# sourceMappingURL=style.css.map */
