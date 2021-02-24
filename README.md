@@ -29,7 +29,7 @@
   <li>Button</li>
 </ul>
 
-<b>CComo eu executo o projeto e os testes?</b> 
+<b>Como eu executo o projeto e os testes?</b> 
 Existem três formas de executá-lo.
 <ul>
   <li>O link informado anteriormente, bem prático ;D</li>
