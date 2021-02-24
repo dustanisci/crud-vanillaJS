@@ -1,0 +1,84 @@
+  .container {
+    &__title {
+      font-size: 20px;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    &__table {
+      display: flex;
+
+      @media only screen and (max-width: 1000px) {
+        overflow-x: scroll;
+        margin: 0 20px;
+      }
+
+      table {
+        border-collapse: collapse;
+        margin: 0 auto;
+        max-width: 90%;
+        display: block;
+
+        &:empty {
+          margin: 0;
+        }
+
+        td,
+        th {
+          border: 1px solid #333;
+          min-width: 150px;
+
+          &:last-child {
+            min-width: 50px;
+          }
+        }
+
+        th {
+          background: #00c8b3;
+          color: #FFF;
+          padding: 10px;
+        }
+
+        td {
+          padding: 10px 20px;
+
+          button {
+            display: block;
+            margin: 0 auto;
+            background: transparent;
+            color: #eb4a46;
+            font-weight: bolder;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+          }
+
+          &.not-found {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    on-loader {
+      margin-bottom: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    button-custom {
+      display: block;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+  }
+
+  modal-dialog {
+    .delete-register {
+      font-size: 16px;
+      color: #FFF;
+      text-align: center;
+    }
+  }

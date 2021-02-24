@@ -1,0 +1,25 @@
+button {
+  border: none;
+  border-radius: 25px;
+  min-height: 50px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    transition: all 500ms;
+    opacity: 70%;
+  }
+
+  &:disabled {
+    color: #dddcdc;
+    background: #f6f6f6;
+  }
+
+  on-loader {
+    display: flex;
+    justify-content: center;
+  }
+}

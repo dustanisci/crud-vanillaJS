@@ -1,0 +1,49 @@
+.modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  display: none;
+}
+.modal.open {
+  display: flex;
+  justify-content: center;
+  top: 30%;
+}
+.modal__container {
+  z-index: 2;
+  border-radius: 10px;
+  border: 1px solid #333;
+  position: absolute;
+  min-height: 150px;
+  background: #FFF;
+  padding: 10px;
+}
+.modal__container slot {
+  width: 100%;
+  position: relative;
+  display: block;
+  height: 80%;
+  margin-top: 25px;
+}
+.modal__container .buttons {
+  position: relative;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 10px;
+  align-content: space-between;
+}
+.modal__container .buttons__container {
+  position: relative;
+  text-align: center;
+  display: flex;
+}
+.modal__container .buttons__container button-custom {
+  margin: 0 20px;
+}
+
+/*# sourceMappingURL=modal-component.css.map */
