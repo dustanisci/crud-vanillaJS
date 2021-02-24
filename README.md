@@ -4,7 +4,7 @@
 
 <b>Endereço de acesso:</b> https://dustanisci.github.io/formulario-vanilla-js/
 
-<b>Descrição:</b> Desenvolvido através de javascript por web components, onde possui componentes reutilizáveis. Possui duas telas, cadastro e listagem de pessoas físicas, em cadastro existem regras no formulário, das quais são: por quantidade mínima de caracteres nos campos, validação do CPF se já foi cadastrado anteriormente, verifica se o e-mail foi digitado corretamente e se os campos foram preenchidos por completo.
+<b>Descrição:</b> Desenvolvido através de javascript por web components, onde possui componentes reutilizáveis. Possui duas telas, cadastro e listagem de pessoas físicas, em cadastro existem regras no formulário, das quais são: por quantidade mínima de caracteres nos campos, validação do CPF se já foi cadastrado anteriormente, verifica se o e-mail foi digitado corretamente e se os campos foram preenchidos por completos.
 
 <b>Tecnologias utilizadas:</b>
 <ul>
@@ -37,3 +37,5 @@ Existem três formas de executá-lo.
   <li>Instalar o npm install --global http-server e executar o comando npm run start</li>
   <li>Os testes do Jest através do npm run test ou apenas jest.</li>
 </ul>
+
+
