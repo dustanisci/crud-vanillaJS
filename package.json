@@ -21,7 +21,8 @@
     "path": "^0.12.7"
   },
   "scripts": {
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "start": "http-server --proxy http://localhost:8080?"
   },
   "repository": {
     "type": "git",
