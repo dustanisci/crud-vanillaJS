@@ -1,6 +1,6 @@
 # Formulário de pessoa física
 
-<b>Descrição:</b> Formulário e consulta simples pessoa física - Javascript Vanilla.
+Formulário e consulta simples pessoa física - Javascript Vanilla.
 
 <b>Endereço de acesso:</b> https://dustanisci.github.io/formulario-vanilla-js/
 
