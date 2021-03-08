@@ -35,7 +35,7 @@ Existem três formas de executá-lo.
   <li>O link informado anteriormente, bem prático ;D</li>
   <li>Baixar o conteúdo do repositório e abrir o index.html</li>
   <li>Instalar o npm install --global http-server e executar o comando npm run start</li>
-  <li>Os testes do Jest através do npm run test ou apenas jest.</li>
+  <li>Os testes do Jest através do npm i e depois npm run test ou apenas jest.</li>
 </ul>
 
 
