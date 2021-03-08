@@ -1,4 +1,4 @@
- class MaskHelper {
+ export class MaskHelper {
 
   static phone(value) {
     if(value){

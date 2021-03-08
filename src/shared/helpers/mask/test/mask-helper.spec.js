@@ -1,4 +1,4 @@
-import { MaskHelper } from './mock';
+import { MaskHelper } from './../mask-helper';
 
 describe('phone', () => {
 
@@ -44,17 +44,17 @@ describe('cpf', () => {
 
 });
 
-describe('cpf', () => {
+describe('remove the mask', () => {
 
-  test('should have the full cpf', () => {
+  test('should remove the cpf mask', () => {
     expect(MaskHelper.removeAll('111.111.111-11')).toEqual('11111111111');
   });
 
-  test('should have the cpf empty', () => {
+  test('remove the cell mask', () => {
     expect(MaskHelper.removeAll('(11) 1111-1111')).toEqual('1111111111');
   });
 
-  test('should have the cpf empty', () => {
+  test('remove the telephone mask', () => {
     expect(MaskHelper.removeAll('(11) 11111-1111')).toEqual('11111111111');
   });
 });

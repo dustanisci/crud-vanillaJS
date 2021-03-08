@@ -1,4 +1,4 @@
-import { FormValidationHelper } from './mock';
+import { FormValidationHelper } from './../form-validation-helper';
 
 import jsdom from 'jsdom';
 const { JSDOM } = jsdom;
@@ -32,8 +32,8 @@ describe('email', () => {
 });
 
 
-describe('number of invalid characters', () => {
-  it('should test if the user exists', () => {
+describe('invalid characters', () => {
+  it('should check for invalid characters', () => {
     const input = document.createElement('input');
     input.value = '2';
     expect(FormValidationHelper.quantityCharactersInvalid(input, 2, 2)).toBeTruthy();

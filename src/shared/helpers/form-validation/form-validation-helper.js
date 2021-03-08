@@ -1,4 +1,4 @@
-class FormValidationHelper {
+export class FormValidationHelper {
 
   static emailInvalid(element) {
     element.removeAttribute('msg-invalid');
