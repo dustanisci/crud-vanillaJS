@@ -1,4 +1,5 @@
-class FormValidationHelper {
+// TODO: ver a configuração do babel com modulos de vanilla js.
+export default class FormValidationHelper {
 
   static emailInvalid(element) {
     element.removeAttribute('msg-invalid');

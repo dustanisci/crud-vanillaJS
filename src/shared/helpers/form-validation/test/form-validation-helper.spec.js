@@ -1,6 +1,6 @@
-import { FormValidationHelper } from './../form-validation-helper';
-
+import FormValidationHelper from './mock';
 import jsdom from 'jsdom';
+
 const { JSDOM } = jsdom;
 const { document } = (new JSDOM('<!doctype html><html><body></body></html>')).window;
 global.document = document;

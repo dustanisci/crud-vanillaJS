@@ -1,4 +1,5 @@
- class MaskHelper {
+// TODO: ver a configuração do babel com modulos de vanilla js.
+export default class MaskHelper {
 
   static phone(value) {
     if(value){
