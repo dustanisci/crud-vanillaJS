@@ -47,8 +47,7 @@ class ModalComponent extends HTMLElement {
 
   disconnectedCallback() {
     this._primaryButton.removeEventListener('click', this._clickPrimaryButton.bind(this))
-    this._primaryButton.removeEventListener('click', this._close.bind(this))
-      ;
+    this._primaryButton.removeEventListener('click', this._close.bind(this));
     this._secondButton.removeEventListener('click', this._clickSecondButton.bind(this));
     this._secondButton.removeEventListener('click', this._close.bind(this));
   }
