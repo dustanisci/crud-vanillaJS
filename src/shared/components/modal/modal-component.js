@@ -40,16 +40,13 @@ class ModalComponent extends HTMLElement {
   connectedCallback() {
     this._primaryButton.addEventListener('click', this._clickPrimaryButton.bind(this));
     this._primaryButton.addEventListener('click', this._close.bind(this));
-
     this._secondButton.addEventListener('click', this._clickSecondButton.bind(this));
-    this._secondButton.addEventListener('click', this._close.bind(this));
   }
 
   disconnectedCallback() {
     this._primaryButton.removeEventListener('click', this._clickPrimaryButton.bind(this))
     this._primaryButton.removeEventListener('click', this._close.bind(this));
     this._secondButton.removeEventListener('click', this._clickSecondButton.bind(this));
-    this._secondButton.removeEventListener('click', this._close.bind(this));
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
