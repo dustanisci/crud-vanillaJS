@@ -7,5 +7,18 @@
       }
     ]
   ],
-  "plugins":  ["@babel/plugin-proposal-export-default-from"]
+  "plugins": [
+    [
+      "@babel/plugin-transform-modules-commonjs",
+      {
+        "allowTopLevelThis": true
+      }
+    ],
+    [
+      "@babel/plugin-transform-classes",
+      {
+        "loose": true
+      }
+    ]
+  ]
 }

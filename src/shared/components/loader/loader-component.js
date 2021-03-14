@@ -10,35 +10,40 @@ class LoaderComponent extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <style>@import url('../../../src/shared/components/loader/loader-component.css')</style>
-      <div id="loader" class="loader">
+      <div class="loader">
         <div class="loader__container"></div>
       </div>
     `;
 
-    this._loader = this.shadowRoot.querySelector('#loader');
+    this.loader = this.shadowRoot.querySelector('.loader');
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'width':
-        this._loader.style.width = newValue;
-        this._loader.style.height = newValue;
+        this.loader.style.width = newValue;
+        this.loader.style.height = newValue;
         break;
 
       case 'color':
-        this._loader.querySelector('div').style.borderLeftColor = newValue;
+        this.loader.querySelector('div').style.borderLeftColor = newValue;
         break;
 
       case 'show':
-        if (newValue) {
-          this._loader.classList.add('show');
-        } else if (this._loader.classList.contains('show')) {
-          this._loader.classList.remove('show');
-        }
+        this.#show(newValue);
         break;
     }
 
   }
+
+  #show(newValue) {
+    if (newValue) {
+      this.loader.classList.add('show');
+    } else if (this.loader.classList.contains('show')) {
+      this.loader.classList.remove('show');
+    }
+  }
+  
 }
 
 customElements.define('on-loader', LoaderComponent);

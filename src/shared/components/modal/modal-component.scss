@@ -5,11 +5,11 @@
   z-index: 1;
   top: 0;
   display: none;
+  background: rgba(0, 0, 0, 0.6);
 
   &.open {
     display: flex;
     justify-content: center;
-    top: 30%;
   }
 
   &__container {
@@ -20,6 +20,8 @@
     min-height: 150px;
     background: #FFF;
     padding: 10px;
+    top: 30%;
+    animation: opacityModal 1s;
 
     slot {
       width: 100%;
@@ -49,6 +51,15 @@
         }
       }
     }
+  }
+}
 
+@keyframes opacityModal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

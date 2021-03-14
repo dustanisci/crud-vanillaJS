@@ -5,6 +5,11 @@ class PersonList {
     this.loader = document.querySelector('on-loader');
     this.modal = document.querySelector('modal-dialog');
     this.renderTable();
+    this.importMaskHelper();
+  }
+
+  async importMaskHelper(){
+    this.maskHelper = await (await import('./../../shared/helpers/mask/mask-helper.js')).default;
   }
 
   template() {
@@ -26,8 +31,8 @@ class PersonList {
             <tr>
               <td>${user.name}</td>
               <td>${user.email}</td>
-              <td>${MaskHelper.cpf(user.cpf)}</td>
-              <td>${MaskHelper.phone(user.phone)}</td>
+              <td>${this.maskHelper.cpf(user.cpf)}</td>
+              <td>${this.maskHelper.phone(user.phone)}</td>
               <td>
                 <button onclick="personList.actionRemove(${user.cpf})">X</button>
               </td>

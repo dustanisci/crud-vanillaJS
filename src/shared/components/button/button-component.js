@@ -13,20 +13,20 @@ class ButtonComponent extends HTMLElement {
     this.attachShadow({ mode: 'open' });
 
     this.shadowRoot.innerHTML = `
-      <style>@import url('../../../src/shared/components/button/button-component.css');</style>
-      <button id="button-custom">
+    <style>@import url('../../../src/shared/components/button/button-component.css');</style>
+      <button>
         <slot></slot>
       </button>
     `;
 
-    this._button = this.shadowRoot.querySelector('#button-custom');
-    this._color = '';
-    this._background = '';
-    this._content = this.shadowRoot.querySelector('#button-custom slot').assignedNodes()[0].textContent;
+    this.button = this.shadowRoot.querySelector('button');
+    this.color = '';
+    this.background = '';
+    this.content = this.shadowRoot.querySelector('button slot').assignedNodes()[0].textContent;
   }
 
   connectedCallback() {
-    if(this.type === 'submit'){
+    if (this.type === 'submit') {
       this.onclick = () => this.closest('FORM').dispatchEvent(new Event('submit'));
     }
   }
@@ -34,38 +34,46 @@ class ButtonComponent extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'color':
-        this._color = newValue;
-        this._button.style.color = newValue;
+        this.color = newValue;
+        this.button.style.color = newValue;
         break;
 
       case 'background':
-        this._background = newValue;
-        this._button.style.background = newValue;
+        this.background = newValue;
+        this.button.style.background = newValue;
         break;
 
       case 'loader':
-        if (newValue) {
-          this._button.innerHTML = '<on-loader show="true"></on-loader>';
-        } else {
-          this._button.innerHTML = this._content;
-        }
+        this.#loader(newValue);
         break;
 
       case 'disabled':
-        if (newValue) {
-          this._button.setAttribute('disabled', true);
-          this._button.style.color = '#dddcdc'
-          this._button.style.background = '#f6f6f6';
-        } else {
-          this._button.setAttribute('disabled', false);
-          this._button.style.color = this._color;
-          this._button.style.background = this._background;
-        }
+        this.#disabled(newValue);
         break;
 
       case 'width':
-        this._button.style.width = newValue;
+        this.button.style.width = newValue;
         break;
+    }
+  }
+
+  #disabled(newValue) {
+    if (newValue) {
+      this.button.setAttribute('disabled', true);
+      this.button.style.color = '#dddcdc'
+      this.button.style.background = '#f6f6f6';
+    } else {
+      this.button.setAttribute('disabled', false);
+      this.button.style.color = this.color;
+      this.button.style.background = this.background;
+    }
+  }
+
+  #loader(newValue) {
+    if (newValue) {
+      this.button.innerHTML = '<on-loader show="true"></on-loader>';
+    } else {
+      this.button.innerHTML = this.content;
     }
   }
 

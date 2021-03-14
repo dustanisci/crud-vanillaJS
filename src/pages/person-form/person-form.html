@@ -19,10 +19,10 @@
     <input-label label="E-mail" id="email" type="email"></input-label>
 
     <input-label label="CPF" id="cpf" type="text" maxlength="14"
-      onkeydown="personForm.personInputs.cpf.value = MaskHelper.cpf(this.value)"></input-label>
+      onkeydown="personForm.personInputs.cpf.value = personForm.maskHelper.cpf(this.value)"></input-label>
 
     <input-label label="Telefone" id="phone" type="text" maxlength="15"
-      onkeydown="personForm.personInputs.phone.value = MaskHelper.phone(this.value)"></input-label>
+      onkeydown="personForm.personInputs.phone.value = personForm.maskHelper.phone(this.value)"></input-label>
 
     <button-custom color="#FFFFFF" background="#00c8b3" width="250px" type="submit">Cadastrar</button-custom>
     <button-custom color="#FFFFFF" background="#333333" width="250px" onclick="personForm.redirectPageList()">Consultar
@@ -36,13 +36,10 @@
   </modal-dialog>
 
   <script src="./person-form.js"></script>
-  <script src="../../shared/models/person.js"></script>
   <script src="../../shared/components/input/input-component.js"></script>
   <script src="../../shared/components/button/button-component.js"></script>
   <script src="../../shared/components/modal/modal-component.js"></script>
   <script src="../../shared/components/loader/loader-component.js"></script>
-  <script src="../../shared/helpers/form-validation/form-validation-helper.js"></script>
-  <script src="../../shared/helpers/mask/mask-helper.js"></script>
   <script>let personForm = new PersonForm();</script>
 </body>
 

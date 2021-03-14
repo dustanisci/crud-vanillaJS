@@ -1,4 +1,4 @@
-import FormValidationHelper from './mock';
+import FormValidationHelper from './form-validation-helper';
 import jsdom from 'jsdom';
 
 const { JSDOM } = jsdom;

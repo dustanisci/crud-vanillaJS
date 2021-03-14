@@ -1,4 +1,5 @@
-class FormValidationHelper {
+import MaskHelper from './../mask/mask-helper.js';
+export default class FormValidationHelper {
 
   static emailInvalid(element) {
     element.removeAttribute('msg-invalid');

@@ -5,11 +5,11 @@
   z-index: 1;
   top: 0;
   display: none;
+  background: rgba(0, 0, 0, 0.6);
 }
 .modal.open {
   display: flex;
   justify-content: center;
-  top: 30%;
 }
 .modal__container {
   z-index: 2;
@@ -19,6 +19,8 @@
   min-height: 150px;
   background: #FFF;
   padding: 10px;
+  top: 30%;
+  animation: opacityModal 1s;
 }
 .modal__container slot {
   width: 100%;
@@ -44,6 +46,15 @@
 }
 .modal__container .buttons__container button-custom {
   margin: 0 20px;
+}
+
+@keyframes opacityModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=modal-component.css.map */

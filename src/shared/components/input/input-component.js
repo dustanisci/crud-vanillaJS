@@ -15,7 +15,6 @@ class InputComponent extends HTMLElement {
       this.removeAttribute('value');
     }
   }
-  
 
   constructor() {
     super();
@@ -24,78 +23,79 @@ class InputComponent extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>@import url('../../../src/shared/components/input/input-component.css');</style>
       <div class="container">
-        <label id="label" class="container__label" for="input"></label>
+        <label class="container__label" for="input"></label>
         <input type="text" id="input" teste="teste" class="container__input"></input>
         <span></span>
       </div>
     `;
 
-    this._label = this.shadowRoot.querySelector('#label');
-    this._input = this.shadowRoot.querySelector('#input');
+    this.label = this.shadowRoot.querySelector('label');
+    this.input = this.shadowRoot.querySelector('input');
   }
 
   connectedCallback() {
-    this._input.addEventListener('change', this._updateValue.bind(this));
-    this._input.addEventListener('keydown', this._updateValue.bind(this));
-    this._input.addEventListener('focus', this._changesColorFocusInput.bind(this));
-    this._input.addEventListener('focusout', this._removeChangesColorFocusInput.bind(this));
+    this.input.addEventListener('change', this.#updateValue.bind(this));
+    this.input.addEventListener('keydown', this.#updateValue.bind(this));
+    this.input.addEventListener('focus', this.#changesColorFocusInput.bind(this));
+    this.input.addEventListener('focusout', this.#removeChangesColorFocusInput.bind(this));
   }
 
   disconnectedCallback() {
-    this._input.removeEventListener('change', this._updateValue.bind(this));
-    this._input.removeEventListener('keydown', this._updateValue.bind(this));
-    this._input.removeEventListener('focus', this._changesColorFocusInput.bind(this));
-    this._input.removeEventListener('focusout', this._removeChangesColorFocusInput.bind(this));
+    this.input.removeEventListener('change', this.#updateValue.bind(this));
+    this.input.removeEventListener('keydown', this.#updateValue.bind(this));
+    this.input.removeEventListener('focus', this.#changesColorFocusInput.bind(this));
+    this.input.removeEventListener('focusout', this.#removeChangesColorFocusInput.bind(this));
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'type':
-        this._input.setAttribute('type', newValue);
+        this.input.setAttribute('type', newValue);
         break;
 
       case 'label':
-        this._label.innerHTML = newValue;
+        this.label.innerHTML = newValue;
         break;
 
       case 'value':
-        this._input.value = newValue;
+        this.input.value = newValue;
         break;
 
       case 'maxlength':
-        this._input.setAttribute('maxlength', newValue);
+        this.input.setAttribute('maxlength', newValue);
         break;
 
       case 'msg-invalid':
-        const msg = this.shadowRoot.querySelector('span');
-        this._msgInvalid = newValue;
-
-        if (this._msgInvalid) {
-          msg.innerHTML = this._msgInvalid;
-          this._input.after(msg);
-          this._input.style.borderColor = "#eb4a46";
-
-        } else {
-          if (msg) {
-            msg.innerHTML = '';
-            this._input.removeAttribute('style');
-          }
-        }
-
+        this.#checkMsgInvalid(newValue);
         break;
     }
   }
 
-  _updateValue() {
-    this.value = this._input.value;
+  #updateValue() {
+    this.value = this.input.value;
   }
 
-  _changesColorFocusInput() {
-    this._label.style.color = '#333333';
+  #changesColorFocusInput() {
+    this.label.style.color = '#333333';
   }
 
-  _removeChangesColorFocusInput() {
-    this._label.removeAttribute('style');
+  #removeChangesColorFocusInput() {
+    this.label.removeAttribute('style');
+  }
+
+  #checkMsgInvalid(newValue) {
+    const msg = this.shadowRoot.querySelector('span');
+    if (newValue) {
+      msg.innerHTML = newValue;
+      this.input.after(msg);
+      this.input.style.borderColor = "#eb4a46";
+
+    } else {
+      if (msg) {
+        msg.innerHTML = '';
+        this.input.removeAttribute('style');
+      }
+    }
   }
 
 }

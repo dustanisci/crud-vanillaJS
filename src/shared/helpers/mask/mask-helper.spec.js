@@ -1,4 +1,4 @@
-import MaskHelper from './mock';
+import MaskHelper from './mask-helper';
 
 describe('phone', () => {
 

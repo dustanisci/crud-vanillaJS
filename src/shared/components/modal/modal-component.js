@@ -14,10 +14,9 @@ class ModalComponent extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-
     this.shadowRoot.innerHTML = `
       <style>@import url('../../../src/shared/components/modal/modal-component.css')</style>
-      <div id="modal" class="modal">
+      <div class="modal">
         <div class="modal__container">
           <slot></slot>
           
@@ -31,70 +30,78 @@ class ModalComponent extends HTMLElement {
       </div>
     `;
 
-    this._modal = this.shadowRoot.querySelector('#modal');
-    this._modalContainer = this.shadowRoot.querySelector('#modal .modal__container');
-    this._primaryButton = this.shadowRoot.querySelector('#btnPrimary');
-    this._secondButton = this.shadowRoot.querySelector('#btnSecond');
+    this.modal = this.shadowRoot.querySelector('.modal');
+    this.modalContainer = this.shadowRoot.querySelector('.modal__container');
+    this.primaryButton = this.shadowRoot.querySelector('#btnPrimary');
+    this.secondButton = this.shadowRoot.querySelector('#btnSecond');
+
   }
 
   connectedCallback() {
-    this._primaryButton.addEventListener('click', this._clickPrimaryButton.bind(this));
-    this._primaryButton.addEventListener('click', this._close.bind(this));
-    this._secondButton.addEventListener('click', this._clickSecondButton.bind(this));
+    this.primaryButton.addEventListener('click', this.#clickPrimaryButton.bind(this));
+    this.primaryButton.addEventListener('click', this.#closeAction.bind(this));
+    this.secondButton.addEventListener('click', this.#clickSecondButton.bind(this));
+    this.secondButton.addEventListener('click', this.#closeAction.bind(this));
   }
 
   disconnectedCallback() {
-    this._primaryButton.removeEventListener('click', this._clickPrimaryButton.bind(this))
-    this._primaryButton.removeEventListener('click', this._close.bind(this));
-    this._secondButton.removeEventListener('click', this._clickSecondButton.bind(this));
+    this.primaryButton.removeEventListener('click', this.#clickPrimaryButton.bind(this))
+    this.primaryButton.removeEventListener('click', this.#closeAction.bind(this));
+    this.secondButton.removeEventListener('click', this.#clickSecondButton.bind(this));
+    this.secondButton.removeEventListener('click', this.#closeAction.bind(this));
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'open':
-        if (newValue) {
-          this._modal.classList.add('open');
-        } else if (this._modal.className === 'open') {
-          this.close();
-        }
+        this.#checkOpenClose(newValue);
         break;
 
       case 'width':
-        this._modalContainer.style.width = newValue;
+        this.modalContainer.style.width = newValue;
         break;
 
       case 'background':
-        this._modalContainer.style.background = newValue;
+        this.modalContainer.style.background = newValue;
         break;
 
       case 'modal-color':
-        this._modalContainer.style.color = newValue;
+        this.modalContainer.style.color = newValue;
         break;
 
       case 'modal-primary-button-text':
-        this._primaryButton.innerHTML = newValue
+        this.primaryButton.innerHTML = newValue
         break;
 
       case 'modal-second-button-text':
-        this._secondButton.innerHTML = newValue
+        this.secondButton.innerHTML = newValue
         break;
 
       case 'hidden-second-button':
-        this._secondButton.remove();
+        this.secondButton.remove();
         break;
     }
   }
 
-  _close() {
-    this._modal.classList.remove('open');
+  #checkOpenClose(newValue) {
+    const action = newValue === 'true' ? true : false;
+    if (action) {
+      this.modal.classList.add('open');
+    } else if (!action && this.modal.className === 'open') {
+      this.#closeAction();
+    }
+  }
+
+  #closeAction() {
+    this.modal.classList.remove('open');
     this.dispatchEvent(new CustomEvent('close'));
   }
 
-  _clickPrimaryButton() {
+  #clickPrimaryButton() {
     this.dispatchEvent(new CustomEvent('clickPrimaryButton'));
   }
 
-  _clickSecondButton() {
+  #clickSecondButton() {
     this.dispatchEvent(new CustomEvent('clickSecondButton'));
   }
 }
