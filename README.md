@@ -2,7 +2,7 @@
 
 Formulário e consulta simples pessoa física - Javascript Vanilla.
 
-<b>Endereço de acesso:</b> https://dustanisci.github.io/formulario-vanilla-js/
+<b>Endereço de acesso:</b> https://dustanisci.github.io/formulario-vanilla-js/ 
 
 <b>Descrição:</b> Desenvolvido através de javascript por web components, onde possui componentes reutilizáveis. Possui duas telas, cadastro e listagem de pessoas físicas, em cadastro existem regras no formulário, das quais são: por quantidade mínima de caracteres nos campos, validação do CPF se já foi cadastrado anteriormente, verifica se o e-mail foi digitado corretamente e se os campos foram preenchidos por completos.
 
